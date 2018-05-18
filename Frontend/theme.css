@@ -1,0 +1,141 @@
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+body{
+  background: linear-gradient(to right, #fff, #ddd);
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+	font-size: 30px;
+	color: black;
+	text-transform: uppercase;
+	font-weight: 500;
+	text-align: center;
+	margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 35px !important;
+}
+
+.tbl-header{
+	
+}
+.tbl-content{
+	height: 330px;
+	overflow-x: auto;
+	margin-top: 0px;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#button, .button, .ACTIVE, .COMPLETED{
+  background-color: #F44336;
+  border: 2px solid #F44336;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+#clearBtn {
+  position: relative;
+  left: 84%;
+  bottom: 5%;
+  color: black;
+}
+
+#clearBtn, #insertBtn {
+  margin-bottom: -5px;
+}
+
+* {
+  margin: 0;
+}
+
+#nameInsert {
+  padding-left: 1%;
+}
+
+
+.button:hover, .ACTIVE:hover {
+  background-color: white;
+  color: black;
+}
+
+.ACTIVE {
+  background-color: green;
+}
+
+.infoColumn{
+  width: 30%;
+  padding: 20px 15px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 20px;
+  color: black;
+
+  	
+}
+
+#firstTableRow{
+  width: 30%;
+  padding: 15px;
+  text-align: center;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 20px;
+  color: black;
+  height: 35px;
+}
+
+#secondTableRow {
+  padding: 15px;
+  vertical-align: middle;
+  font-weight: 300;
+  font-size: 20px;
+  color: black;
+}
+
+#buttonColumn {
+  text-align: center;
+}
+
+.withBorder {
+  border-bottom: solid 1px rgba(200, 200, 200, 1);
+
+}
+
+.leftColumn {
+  border-left: solid 1px rgba(0,0,0, 0);
+}
+
+.md-button.createBtn{
+  color: black;
+  font-size: 16px;
+  padding: 2px 2px;
+}
+
+.btn1 {
+  margin-right: 0px;
+  color : red !important;
+}
+
+.btn2 {
+  margin-right: 16px;
+}
+
+#insert {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+
+.leftAlign {
+  text-align: left;
+}

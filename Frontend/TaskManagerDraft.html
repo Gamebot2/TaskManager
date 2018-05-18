@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	
+	<link rel = "shortcut icon" href="img\katana.png">
+	<!--link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/-->
+ 	<link rel = "stylesheet" href = "https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+ 	 <link rel = "stylesheet" type = "text/css" href = "animate.css">
+      <link rel = "stylesheet" type = "text/css" href = "theme.css">
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+      <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+	<script src = "app.js"></script>
+	
+	<title>Task Manager</title>
+
+</head>
+<body ng-app = "taskManager" ng-controller="taskDisplayController" class = "taskClass">
+
+
+	<script type="text/ng-template" id="dialog1.tmpl.html">
+		<div ng-app = "taskManager" ng-controller="taskDisplayController">
+	<md-dialog>
+  	<form ng-cloak>
+    	<md-toolbar>
+      		<div class="md-toolbar-tools">
+        	<h3>Color Change</h3>
+        	<span flex></span>
+        	
+      		</div>
+    	</md-toolbar>
+
+    	<md-dialog-content>
+    		<div class = "md-dialog-content">
+      		<p>Selected Value: <span class="radioValue">{{ data.group1 }}</span> </p><br>
+
+    <md-radio-group ng-model="theme">
+
+      <md-radio-button value="default" class="md-primary">Blue</md-radio-button>
+      <md-radio-button value="altTheme1">Light Blue</md-radio-button>
+      <md-radio-button value="Purple">Purple</md-radio-button>
+
+    </md-radio-group>
+
+    <md-button class = "md-primary" ng-click="changeTheme()">Test Button</md-button>
+</div>
+    	</md-dialog-content>
+    	<md-dialog-actions layout="row">
+      		<span flex></span>
+      		<h5>All done? Click outside to close!</h5>
+    	</md-dialog-actions>
+  	</form>
+	</md-dialog>
+</div>
+	</script>
+
+
+	<div md-theme = "{{dynamicTheme}}" md-theme-watch = "true">
+	<div>
+		
+	<md-toolbar class="md-hue-2 md-tall md-toolbar-tools">
+      <div class="md-toolbar-tools">
+      	<br><br><br>
+        <h2 flex="" md-truncate="" class = "animated fadeInLeft">Task Manager</h2>
+         <md-button class="md-accent md-raised animated fadeInRight" ng-click="showAdvanced($event)">Change Color</md-button>
+        <md-button class = "md-primary btn2 animated fadeInRight" ng-click = "clearCompletedTasks()">Clear Completed Tasks</md-button>
+        <md-switch  class = "animated fadeInRight" ng-model="showCompleted" ng-change="completedTaskSelChange()" aria-label="Switch 1">Show Completed Tasks
+      </div>
+    </md-toolbar>
+
+	</div>
+	<!--h1>task manager</h1-->
+	 
+  </md-switch>
+	<div class = "tbl-header" >
+		<table align = "center" cellpadding="0" cellspacing="0" border = "0"> 
+			<thead>
+				<tr>
+					<th width = "200px" class = ""></th>
+					<th class = "withBorder infoColumn">Task Name</th>
+					<th class = "withBorder infoColumn">Task Class</th>
+					<th class = "withBorder infoColumn">Status</th>
+					
+				</tr>
+			</thead>
+		</table>
+	</div>
+	<div class = "tbl-content" ng-controller="taskDisplayController">
+		<tbody>
+			<table align = "center" cellpadding="0" cellspacing="0" border = "0"> 
+				<tr ng-repeat="task in tasks | filter:filterCompletedTasks(showCompleted) | orderBy:'status'">
+					<form name = "form" id = "form">
+					<td id = "buttonColumn" width = "200px" class = "animated fadeInLeft"><md-button  ng-click="removeTask(task)" ng-hide = "{{task.status=='COMPLETED'}}" class = "md-raised">Complete</md-button></td>
+					<td id = "firstTableRow" class = "withBorder leftColumn leftAlign">{{task.name}}</td>
+					<td id = "firstTableRow" class = "withBorder leftAlign">{{task.clazz}}</td>
+					<td id = "firstTableRow" class = "withBorder">{{task.status}}</button></td>
+					</form>
+				</tr>
+				
+			</table>
+		</tbody>
+	</div>
+	<br><br>
+	<!--h1>Insert Task</h1-->
+	<div id = "insert">
+	<md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <h3 flex="" md-truncate="" class = "animated fadeInLeft">Insert Task</h3>
+      </div>
+    </md-toolbar><br>
+			<!--table width="80%"> 
+				<tr>
+					<td align="right" width="30%" id = "secondTableRow">Task Name:</td>
+					<td align="center" width="70%" id = "secondTableRow">
+						<input type = "text" name="taskName" ng-model="taskName" required/>
+						<span ng-show="myForm.taskName.$invalid">The Task Name is required.</span>
+					</td>
+					<td width = "10%" id = "secondTableRow">
+					</td>
+				</tr>
+				<tr>
+					<td align= "right" id = "secondTableRow">
+						Task Class:</td>
+					<td align= "center" id = "secondTableRow">
+						<input type = "text" name="taskClass" ng-model="taskClass" required/>
+						<span ng-show="myForm.taskClass.$invalid">The Task Class is required.</span>
+					</td>
+					<td id = "secondTableRow"-->
+					<!--/td>
+				</tr>
+			</table-->
+	
+		<form name = "insertForm">
+			<div layout-gt-sm="row">
+          		<md-input-container class="md-block animated fadeInUp" flex = "45">
+            		<label>Task Name*</label>
+            		<input required = "" name = "taskName" ng-model="taskName" autofocus>
+            		<div ng-messages = "insertForm.taskName.$error">
+            			<div ng-message = "required">This is required</div>
+            		</div>
+          		</md-input-container>
+          		<md-input-container class="md-block animated fadeInUp" flex = "45">
+            		<label>Task Class*</label>
+            		<input required = "" name = "taskClass" ng-model="taskClass">
+            		<div ng-messages = "insertForm.taskClass.$error">
+            			<div ng-message = "required">This is required</div>
+            		</div>
+          		</md-input-container>
+          		<!--md-button ng-click = "createTask()" class = "createBtn">Create Task</md-button-->
+          		<md-button class = "md-fab md-primary animated fadeInUp" aria-label = "" ng-click = "createTask()">
+          			<md-tooltip md-direction = "right">Create Task</md-tooltip>
+          			<md-icon md-svg-src="img/icons/done.svg">
+          			</md-icon>
+          		</md-button>
+        	</div>
+        </form>	
+    </div>
+		</div>
+
+	<script type="text/ng-template" id="toast-template.html"><md-toast>
+ 		<span class="md-toast-text" flex>Task Marked Completed</span>
+  		<md-button ng-click="closeToast()" class = "md-accent">
+    		Close</md-button>
+		</md-toast>
+	</script>
+
+
+</body>
+</html>

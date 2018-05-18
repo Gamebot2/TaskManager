@@ -1,5 +1,6 @@
 package com.ansh.test.controller;
 
+import java.io.Console;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -63,12 +64,13 @@ public class SpringRestController {
 		return userService.getAllDepartments();
 	}
 	
-	@CrossOrigin(origins = "*")
+	@CrossOrigin(origins = "http://localhost:8081")
 	@RequestMapping("/tasks")
 	public TaskResponse getAllTasks() {
 		
 		TaskResponse response = new TaskResponse();
 		response.setTaskList(userService.getAllTasks());
+		//System.out.println(userService.getAllTasks().toString());
 		return response;
 	}
 	

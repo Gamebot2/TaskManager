@@ -4,9 +4,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Service;
 
 import com.ansh.test.repository.TaskList;
 
+@Service
 public class TaskRowMapper implements RowMapper<TaskList> {
 
 	@Override
