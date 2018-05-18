@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.ansh.test.service.impl.UserServiceImplTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.273 sec <<< FAILURE! - in com.ansh.test.service.impl.UserServiceImplTest
+testGetAllDepartments(com.ansh.test.service.impl.UserServiceImplTest)  Time elapsed: 0.015 sec  <<< FAILURE!
+java.lang.AssertionError: expected:<1> but was:<2>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:645)
+	at org.junit.Assert.assertEquals(Assert.java:631)
+	at com.ansh.test.service.impl.UserServiceImplTest.testGetAllDepartments(UserServiceImplTest.java:59)
+

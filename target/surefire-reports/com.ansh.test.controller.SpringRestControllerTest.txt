@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.ansh.test.controller.SpringRestControllerTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.122 sec <<< FAILURE! - in com.ansh.test.controller.SpringRestControllerTest
+testSayHello(com.ansh.test.controller.SpringRestControllerTest)  Time elapsed: 0.012 sec  <<< ERROR!
+java.lang.NullPointerException: null
+	at com.ansh.test.controller.SpringRestControllerTest.setup(SpringRestControllerTest.java:22)
+
+testToUpperCase(com.ansh.test.controller.SpringRestControllerTest)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NullPointerException: null
+	at com.ansh.test.controller.SpringRestControllerTest.setup(SpringRestControllerTest.java:22)
+
